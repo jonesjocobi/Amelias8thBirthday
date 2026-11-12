@@ -40,7 +40,7 @@ document.getElementById('egg').addEventListener('click',hatch);
 document.getElementById('missionButton').addEventListener('click',()=>{const reveal=document.getElementById('missionReveal');reveal.hidden=!reveal.hidden;document.getElementById('missionButton').setAttribute('aria-expanded',String(!reveal.hidden));document.getElementById('missionButton').textContent=reveal.hidden?'🥚 Reveal your secret mission':'🦕 Hide secret mission';});
 function updateCountdown(){const diff=PARTY_DATE-new Date();if(diff<=0){['days','hours','minutes','seconds'].forEach(id=>document.getElementById(id).textContent='00');document.getElementById('countdownMessage').textContent='🎉 It’s party time! ROAR!';return}document.getElementById('days').textContent=Math.floor(diff/86400000);document.getElementById('hours').textContent=String(Math.floor(diff/3600000)%24).padStart(2,'0');document.getElementById('minutes').textContent=String(Math.floor(diff/60000)%60).padStart(2,'0');document.getElementById('seconds').textContent=String(Math.floor(diff/1000)%60).padStart(2,'0')};updateCountdown();setInterval(updateCountdown,1000);
 // After deploying the included Google Apps Script, paste its /exec URL below.
-const RSVP_SCRIPT_URL = '';
+const RSVP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby9lQqv5bvIUt2664_4H5FfzIaIgHxY1j5M5mjBjE5OfeTri_f8Wpqbg5cdS54e11U4lA/exec';
 const rsvpForm = document.getElementById('rsvpForm');
 const statusEl = document.getElementById('rsvpStatus');
 const countFields = document.getElementById('headcountFields');
