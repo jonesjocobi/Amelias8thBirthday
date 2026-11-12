@@ -28,6 +28,32 @@
 <button class="button" type="submit" id="submitRsvp">🦖 Send my RSVP</button><p id="rsvpStatus" class="rsvp-status" role="status" aria-live="polite"></p>
 </form><iframe name="rsvpTarget" id="rsvpTarget" title="RSVP submission" hidden></iframe>
 <p class="note">Responses are sent privately to Amelia's family. Questions? <a href="mailto:jonesjocobi@gmail.com">jonesjocobi@gmail.com</a></p></section>
+<label for="familyDisplayName">Family name for the Dino Crew (optional)</label>
+<input id="familyDisplayName" name="familyDisplayName"
+       maxlength="80" placeholder="e.g., The Garcia Family">
+<label class="radio-line" style="display:flex;gap:10px;align-items:flex-start">
+  <input type="checkbox" name="publicConsent" value="Yes"
+         style="width:auto;margin-top:5px">
+  Yes! You may display our family name on Amelia's public Dino Crew list.
+</label>
+<section class="card" id="dinoCrew">
+  <p class="eyebrow">Our prehistoric party crew</p>
+  <h2>🦕 Meet Amelia's Dino Crew!</h2>
+  <p>Look who's joining the adventure!</p>
+
+  <iframe
+    title="Amelia's confirmed Dino Crew"
+    id="dinoCrewList"
+    style="width:100%;min-height:310px;border:0;
+           border-radius:18px;background:#fff7e5"
+    loading="lazy">
+  </iframe>
+
+  <p class="note">
+    Only families who choose to share their names
+    appear on this list.
+  </p>
+</section>
 <footer>Made with 💚 for Amelia's 8th birthday • Stay wild, little explorer! 🌿</footer>
 </main>
 <script>
