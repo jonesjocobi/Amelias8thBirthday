@@ -24,10 +24,6 @@
 <label for="childNames">Child / children's names *</label><input id="childNames" name="childNames" maxlength="250" required placeholder="Names of children invited">
 <fieldset><legend>Will your family attend? *</legend><label class="radio-line"><input type="radio" name="attendance" value="Yes" checked> Yes! 🦕</label><label class="radio-line"><input type="radio" name="attendance" value="No"> Can't make it</label></fieldset>
 <div id="headcountFields"><label for="adults">Number of adults attending</label><select id="adults" name="adults"><option>0</option><option selected>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select><label for="children">Number of children attending</label><select id="children" name="children"><option>0</option><option selected>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
-<label for="note">Note (optional)</label><textarea id="note" name="note" maxlength="500" rows="2" placeholder="Anything you'd like us to know?"></textarea>
-<button class="button" type="submit" id="submitRsvp">🦖 Send my RSVP</button><p id="rsvpStatus" class="rsvp-status" role="status" aria-live="polite"></p>
-</form><iframe name="rsvpTarget" id="rsvpTarget" title="RSVP submission" hidden></iframe>
-<p class="note">Responses are sent privately to Amelia's family. Questions? <a href="mailto:jonesjocobi@gmail.com">jonesjocobi@gmail.com</a></p></section>
 <label for="familyDisplayName">Family name for the Dino Crew (optional)</label>
 <input id="familyDisplayName" name="familyDisplayName"
        maxlength="80" placeholder="e.g., The Garcia Family">
@@ -36,6 +32,10 @@
          style="width:auto;margin-top:5px">
   Yes! You may display our family name on Amelia's public Dino Crew list.
 </label>
+<label for="note">Note (optional)</label><textarea id="note" name="note" maxlength="500" rows="2" placeholder="Anything you'd like us to know?"></textarea>
+<button class="button" type="submit" id="submitRsvp">🦖 Send my RSVP</button><p id="rsvpStatus" class="rsvp-status" role="status" aria-live="polite"></p>
+</form><iframe name="rsvpTarget" id="rsvpTarget" title="RSVP submission" hidden></iframe>
+<p class="note">Responses are sent privately to Amelia's family. Questions? <a href="mailto:jonesjocobi@gmail.com">jonesjocobi@gmail.com</a></p></section>
 <section class="card" id="dinoCrew">
   <p class="eyebrow">Our prehistoric party crew</p>
   <h2>🦕 Meet Amelia's Dino Crew!</h2>
@@ -48,7 +48,6 @@
            border-radius:18px;background:#fff7e5"
     loading="lazy">
   </iframe>
-
   <p class="note">
     Only families who choose to share their names
     appear on this list.
