@@ -146,7 +146,7 @@ document.getElementById('calendarLink').href=calUrl;document.getElementById('cal
   };
 
   const script = document.createElement('script');
-  script.src = URL;
+  script.src = URL + '&t=' + Date.now();
   script.onerror = function () {
     const status = document.getElementById('dinoCrewStatus');
     if (status) {
