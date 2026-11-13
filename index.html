@@ -40,14 +40,14 @@
   <p class="eyebrow">Our prehistoric party crew</p>
   <h2>🦕 Meet Amelia's Dino Crew!</h2>
   <p>Look who's joining the adventure!</p>
-<div id="dinoCrewList"
-     style="width:100%;min-height:310px;border-radius:18px;
-            background:#fff7e5;padding:24px;
-            box-sizing:border-box;text-align:center;
-            color:#174638">
-  <p id="dinoCrewStatus">Loading our Dino Crew... 🦕</p>
-  <div id="dinoCrewContent"></div>
-</div>
+<iframe
+  id="dinoCrewList"
+  title="Amelia's confirmed Dino Crew"
+  src="https://script.google.com/macros/s/AKfycby9lQqv5bvIUt2664_4H5FfzIaIgHxY1j5M5mjBjE5OfeTri_f8Wpqbg5cdS54e11U4lA/exec?view=crew"
+  style="width:100%;min-height:310px;border:0;
+         border-radius:18px;background:#fff7e5"
+  loading="lazy">
+</iframe>
   <p class="note">
     Only families who choose to share their names
     appear on this list.
@@ -92,69 +92,5 @@ const calStart='20270109T130000',calEnd='20270109T160000'; // Calendar end time 
 const calUrl='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent("Amelia's ROAR-SOME 8th Birthday!")+'&dates='+calStart+'/'+calEnd+'&ctz=America%2FLos_Angeles&details='+encodeURIComponent('Join Amelia for a dinosaur birthday adventure!')+'&location='+encodeURIComponent('12089 Rue Des Amis, San Diego, CA 92131');
 document.getElementById('calendarLink').href=calUrl;document.getElementById('calendarLink').target='_blank';document.getElementById('calendarLink').rel='noopener noreferrer';
 </script>
-<script>
-(function () {
-  const URL =
-    'https://script.google.com/macros/s/' +
-    'AKfycby9lQqv5bvIUt2664_4H5FfzIaIgHxY1j5M5mjBjE5OfeTri_f8Wpqbg5cdS54e11U4lA' +
-    '/exec?view=crew';
 
-  window.receiveDinoCrew = function (data) {
-    const status = document.getElementById('dinoCrewStatus');
-    const content = document.getElementById('dinoCrewContent');
-
-    if (!status || !content) return;
-
-    status.textContent = '';
-
-    const adults = Number(data.adults) || 0;
-    const children = Number(data.children) || 0;
-
-    const totals = document.createElement('p');
-    totals.style.cssText =
-      'font-size:1.15rem;font-weight:bold;margin:0 0 20px';
-    totals.textContent =
-      '🦖 ' + adults + ' adults  •  🦕 ' + children + ' kids';
-    content.appendChild(totals);
-
-    const families = Array.isArray(data.families)
-      ? data.families : [];
-
-    if (families.length === 0) {
-      const empty = document.createElement('p');
-      empty.textContent =
-        'Our Dino Crew is gathering! Check back soon. 🥚';
-      content.appendChild(empty);
-      return;
-    }
-
-    const list = document.createElement('div');
-    list.style.cssText =
-      'display:flex;flex-wrap:wrap;gap:12px;' +
-      'justify-content:center';
-
-    families.forEach(function (name) {
-      const chip = document.createElement('span');
-      chip.textContent = '🦕 ' + name;
-      chip.style.cssText =
-        'background:#e4efcf;padding:12px 18px;' +
-        'border-radius:999px;font-weight:bold';
-      list.appendChild(chip);
-    });
-
-    content.appendChild(list);
-  };
-
-  const script = document.createElement('script');
-  script.src = URL + '&t=' + Date.now();
-  script.onerror = function () {
-    const status = document.getElementById('dinoCrewStatus');
-    if (status) {
-      status.textContent =
-        'The Dino Crew list is temporarily unavailable.';
-    }
-  };
-  document.body.appendChild(script);
-})();
-</script>
 </body></html>
