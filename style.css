@@ -602,3 +602,22 @@ input.invalid { border-color: #D7263D; animation: quake .4s; }
   0% { opacity: .75; transform: rotate(var(--r)) scale(1); }
   100% { opacity: 0; transform: rotate(var(--r)) scale(.6); }
 }
+
+/* ---------- Keep the RSVP form inside narrow phone screens ---------- */
+.rsvp-card, .rsvp-done { width: 100%; }
+.field, fieldset { min-width: 0; }
+.counts { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.counter, .counts .full, .party-preview { min-width: 0; }
+.party-preview { overflow-wrap: anywhere; }
+input[type="text"], input[type="email"], textarea { max-width: 100%; min-width: 0; }
+@media (max-width: 760px) {
+  .counter { padding: 10px 6px; }
+  .stepper { gap: 6px; }
+  .stepper button { width: 38px; height: 38px; font-size: 1.4rem; flex: 0 0 auto; }
+  .stepper output { font-size: 1.7rem; min-width: 1.3em; }
+}
+@media (max-width: 359px) {
+  .counts { grid-template-columns: minmax(0, 1fr); }
+}
+html, body { overflow-x: hidden; max-width: 100%; }
+@supports (overflow: clip) { html, body { overflow-x: clip; } }
