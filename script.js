@@ -6,7 +6,7 @@
    API_URL: the Google Apps Script web app URL (ends in /exec). See README.md.
    Leave it empty to use test mode (RSVPs are saved only on this device). */
 const CONFIG = {
-  API_URL: '',
+  API_URL: 'https://script.google.com/macros/s/AKfycbxoNH9pNTkHCIEv8v4KfOQjXFAYgLG59lKIf1jw7ChZtKqz98f64tm6OVifMwyupK6iHQ/exec',
   PARTY_START: '2027-01-09T13:00:00-08:00',
   PARTY_HOURS: 3, // only used for the calendar event length
   TITLE: "Amelia's 8th Birthday · Dinosaur Explorer Mission 🦖",
