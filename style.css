@@ -535,7 +535,7 @@ input.invalid { border-color: #D7263D; animation: quake .4s; }
 
 /* ---------- Fun pointer (computers only) ---------- */
 @media (hover: hover) and (pointer: fine) {
-  html, body, .egg.cracked { cursor: url("assets/cursor-claw.png") 3 3, auto; }
+  html, body, .egg.cracked { cursor: url("assets/cursor-claw.png?v=2") 3 3, auto; }
   a, button, label, summary, .btn, .egg, .pill span, .rex-btn, .stepper button {
     cursor: url("assets/cursor-bone.png") 20 20, pointer;
   }
