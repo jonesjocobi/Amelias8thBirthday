@@ -535,9 +535,9 @@ input.invalid { border-color: #D7263D; animation: quake .4s; }
 
 /* ---------- Fun pointer (computers only) ---------- */
 @media (hover: hover) and (pointer: fine) {
-  html, body, .egg.cracked { cursor: url("assets/cursor-claw.png?v=3") 3 18, auto; }
+  html, body, .egg.cracked { cursor: url("assets/cursor-claw.png?v=4") 3 15, auto; }
   a, button, label, summary, .btn, .egg, .pill span, .rex-btn, .stepper button {
-    cursor: url("assets/cursor-claw.png?v=3") 3 18, pointer;
+    cursor: url("assets/cursor-claw.png?v=4") 3 15, pointer;
   }
   input[type="text"], input[type="email"], textarea { cursor: text; }
   .btn[disabled] { cursor: progress; }
