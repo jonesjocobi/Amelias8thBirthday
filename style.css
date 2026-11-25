@@ -537,7 +537,7 @@ input.invalid { border-color: #D7263D; animation: quake .4s; }
 @media (hover: hover) and (pointer: fine) {
   html, body, .egg.cracked { cursor: url("assets/cursor-rock.png") 4 4, auto; }
   a, button, label, summary, .btn, .egg, .pill span, .rex-btn, .stepper button {
-    cursor: url("assets/cursor-bone.png") 20 20, pointer;
+    cursor: url("assets/cursor-rock.png") 4 4, pointer;
   }
   input[type="text"], input[type="email"], textarea { cursor: text; }
   .btn[disabled] { cursor: progress; }
