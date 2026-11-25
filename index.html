@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Amelia's 8th Birthday · Dinosaurs Are Coming Back!</title>
+  <meta name="description" content="Dinosaurs are coming back! Join Amelia and Rex the T-rex for a Dinosaur Explorer Mission · Saturday, January 9, 2027 at 1:00 PM.">
+  <meta name="theme-color" content="#2F6B1F">
+  <!-- Link previews (WhatsApp, iMessage, Facebook) -->
+  <meta property="og:title" content="🦖 Dinosaurs are coming back! Amelia is turning 8">
+  <meta property="og:description" content="Join the Dinosaur Explorer Mission · Saturday, January 9, 2027 · 1:00 PM">
+  <meta property="og:image" content="https://jonesjocobi.github.io/Amelias8thBirthday/assets/share.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Baloo+2:wght@400;600;700;800&family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="demo-notice" class="demo-notice" hidden>
+    🧪 Test mode: RSVPs are only saved on this device. Connect Google Sheets in <code>script.js</code> (see README).
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="top">
+    <div class="sky">
+      <span class="sun"></span>
+      <span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span>
+      <svg class="ptero" viewBox="0 0 120 50" aria-hidden="true"><path d="M0 22c18-4 34-2 48 6l8-10 6 2-2 10c14-8 34-14 60-12-20 6-36 14-48 26l-10-2c-6-4-14-8-24-10C24 30 10 28 0 22z" fill="#E0782E"/><circle cx="58" cy="17" r="1.6" fill="#1d1d1b"/></svg>
+      <svg class="ptero p2" viewBox="0 0 120 50" aria-hidden="true"><path d="M0 22c18-4 34-2 48 6l8-10 6 2-2 10c14-8 34-14 60-12-20 6-36 14-48 26l-10-2c-6-4-14-8-24-10C24 30 10 28 0 22z" fill="#C25E1E"/></svg>
+    </div>
+
+    <div class="volcano" aria-hidden="true">
+      <span class="smoke s1"></span><span class="smoke s2"></span><span class="smoke s3"></span>
+      <svg viewBox="0 0 300 180"><path d="M0 180L110 30h80l110 150z" fill="#8A5A3C"/><path d="M110 30h80l-12 18c-8-6-16 8-24 0s-14 6-22-2-14 4-22-16z" fill="#F2622E"/><path d="M128 48c4 20-6 40 0 62 4 14-2 30 2 40" stroke="#F2622E" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M166 46c-6 18 4 30-2 50" stroke="#F59A3C" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+    </div>
+
+    <div class="hero-inner container">
+      <p class="breaking"><span class="dot"></span> BREAKING DINO NEWS</p>
+      <h1 class="hero-title" aria-label="Dinosaurs are coming back!">
+        <span class="line l1">Dinosaurs</span>
+        <span class="line l2">are coming</span>
+        <span class="line l3">back!</span>
+      </h1>
+      <p class="hero-sub">
+        <b>Amelia</b> is turning <span class="eight">8</span>
+        and her best buddy <b>Rex</b> is calling every brave
+        <b>Dinosaur Explorer</b> for a top-secret mission! 🦴
+      </p>
+
+      <div class="rex-stage">
+        <button class="rex-btn" id="rex-btn" type="button" aria-label="Tap Rex to hear him roar">
+          <img src="assets/rex.svg" alt="Rex, Amelia's green T-rex stuffy" class="rex-hero" width="400" height="260">
+        </button>
+        <div class="speech" id="rex-speech" role="status" aria-live="polite">Psst… tap me! 🦖</div>
+        <div class="egg-8" aria-hidden="true">
+          <span class="egg-top"></span><span class="egg-num">8</span><span class="egg-bottom"></span>
+        </div>
+      </div>
+
+      <div class="hero-date">
+        <span>🗓️ Sat · Jan 9, 2027</span><span>🕐 1:00 PM</span><span>🏡 Jones Family Home</span>
+      </div>
+
+      <div class="countdown" id="countdown" aria-label="Countdown to the party">
+        <div><b data-cd="days">--</b><small>days</small></div>
+        <div><b data-cd="hours">--</b><small>hours</small></div>
+        <div><b data-cd="minutes">--</b><small>min</small></div>
+        <div><b data-cd="seconds">--</b><small>sec</small></div>
+      </div>
+      <p class="countdown-done" id="countdown-done" hidden>🦖 The dinosaurs have arrived! ROAAAR!</p>
+
+      <div class="hero-cta">
+        <a href="#rsvp" class="btn btn-primary">🦖 Join the expedition (RSVP)</a>
+        <a href="#mission" class="btn btn-ghost">🔍 Read the mission</a>
+      </div>
+    </div>
+
+    <div class="ground" aria-hidden="true">
+      <div class="ferns"></div>
+      <div class="tracks"></div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= MISSION ================= -->
+    <section class="section mission" id="mission">
+      <div class="container">
+        <div class="dossier reveal">
+          <span class="stamp">TOP SECRET</span>
+          <span class="clip" aria-hidden="true"></span>
+          <p class="file-no">FILE #AJ-08 · CLEARANCE: DINOSAUR EXPLORERS ONLY</p>
+          <h2>📜 Mission Briefing</h2>
+          <div class="typewriter" id="typewriter"
+               data-text="Attention, Explorers! Strange giant footprints have been spotted near the Jones Family Home. Rex the T-rex believes the dinosaurs are coming back… and he needs a team of brave explorers to help. Your mission will be revealed at base camp on January 9th. Come ready to search, dig and discover!"></div>
+          <ul class="mission-list">
+            <li><span>🧭</span> <b>Your role:</b> Official Dinosaur Explorer</li>
+            <li><span>🎒</span> <b>Bring:</b> your bravest explorer spirit (and comfy clothes for adventuring)</li>
+            <li><span>🦴</span> <b>The objective:</b> CLASSIFIED until party day</li>
+            <li><span>🏅</span> <b>Reward:</b> eternal glory and a giant dino hug from Rex</li>
+          </ul>
+          <p class="signed">— Signed, <span class="sig">Rex</span> &amp; Expedition Leader <span class="sig">Amelia</span></p>
+        </div>
+
+        <div class="eggs-game reveal">
+          <h3>🥚 Hatch the secret message!</h3>
+          <p class="muted">Rex hid a clue inside <b>8 dino eggs</b> (one for every year of Amelia!). Tap each egg to crack it open.</p>
+          <div class="eggs" id="eggs"></div>
+          <p class="eggs-result" id="eggs-result" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MEET REX ================= -->
+    <section class="section meet" id="rex">
+      <div class="container">
+        <h2 class="section-title reveal">Meet the Expedition Team</h2>
+        <p class="section-lead reveal">Every great dinosaur expedition needs a fearless leader… and a loyal T-rex.</p>
+
+        <div class="team">
+          <article class="card field-card reveal">
+            <div class="polaroid tilt-l">
+              <img src="assets/photos/rex-original.jpg" alt="Rex's original dinosaur drawing, a green Tyrannosaurus Rex with yellow spots" loading="lazy">
+              <span class="caption">Rex (official portrait)</span>
+            </div>
+            <h3>🦖 Rex</h3>
+            <dl class="stats">
+              <div><dt>Species</dt><dd>Tyrannosaurus Rex <small>(super-snuggly edition)</small></dd></div>
+              <div><dt>Color</dt><dd>Lime green with golden spots</dd></div>
+              <div><dt>Favorite food</dt><dd>Birthday cake 🎂</dd></div>
+              <div><dt>Best friend</dt><dd>Amelia, forever 💚</dd></div>
+            </dl>
+            <div class="meters">
+              <label>Roar power <span class="meter"><i style="--v:100%"></i></span></label>
+              <label>Hug level <span class="meter"><i style="--v:95%"></i></span></label>
+              <label>Tiny-arm strength <span class="meter"><i style="--v:22%"></i></span></label>
+            </div>
+          </article>
+
+          <article class="card field-card leader reveal">
+            <div class="polaroid tilt-r">
+              <img src="assets/photos/amelia-with-rex.jpg" alt="Amelia holding Rex" loading="lazy" data-placeholder="Amelia &amp; Rex photo coming soon!">
+              <span class="caption">Expedition Leader Amelia &amp; Rex</span>
+            </div>
+            <h3>🧭 Amelia</h3>
+            <dl class="stats">
+              <div><dt>Rank</dt><dd>Chief Dinosaur Explorer</dd></div>
+              <div><dt>Turning</dt><dd><b class="big8">8</b> years old!</dd></div>
+              <div><dt>Super power</dt><dd>Knows ALL the dino names</dd></div>
+              <div><dt>Sidekick</dt><dd>Rex the T-rex</dd></div>
+            </dl>
+          </article>
+
+          <article class="card field-card cartoon reveal">
+            <div class="polaroid tilt-l">
+              <img src="assets/photos/rex-caricature.png" alt="Cartoon version of Amelia and Rex" loading="lazy" data-placeholder="Cartoon Amelia &amp; Rex coming soon!">
+              <span class="caption">Cartoon Mode: ACTIVATED</span>
+            </div>
+            <h3>✏️ Dino-toon Edition</h3>
+            <p>When Amelia and Rex go on adventures, they turn into cartoon heroes. Watch out, volcanoes! 🌋</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DINO ERA, SEASON 2 ================= -->
+    <section class="section era" id="era">
+      <div class="container">
+        <h2 class="section-title reveal">The Dino Era: Season 2 🎬</h2>
+        <p class="section-lead reveal">Last year the dinosaurs came to Amelia's party. This year… <b>they're coming BACK!</b></p>
+
+        <div class="timeline">
+          <article class="era-card reveal">
+            <span class="era-badge">Season 1 · Age 7</span>
+            <div class="polaroid tilt-l">
+              <img src="assets/photos/amelia-age-7.jpg" alt="Amelia at her 7th birthday holding Rex in front of a dinosaur birthday banner" loading="lazy">
+              <span class="caption">7th birthday · Rex was there too!</span>
+            </div>
+            <p>The very first Dino Party! Dino dress ✔ Dino banner ✔ Rex ✔ Big smiles ✔</p>
+          </article>
+
+          <div class="era-arrow" aria-hidden="true">
+            <span>👣</span><span>👣</span><span>👣</span>
+          </div>
+
+          <article class="era-card next reveal">
+            <span class="era-badge hot">Season 2 · Age 8</span>
+            <div class="mystery">
+              <span class="q">?</span>
+              <p>Coming<br>Jan 9, 2027</p>
+            </div>
+            <p>Bigger. Roarier. With a <b>secret mission</b>. Starring <b>YOU</b> as a Dinosaur Explorer!</p>
+          </article>
+        </div>
+
+        <div class="dino-facts reveal">
+          <h3>🦕 Dino fact of the day</h3>
+          <p id="fact" aria-live="polite">T. rex had teeth as big as bananas!</p>
+          <button class="btn btn-small" id="fact-btn" type="button">🔄 Another fact!</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DETAILS ================= -->
+    <section class="section details" id="details">
+      <div class="container">
+        <h2 class="section-title reveal">Expedition Details 🗺️</h2>
+        <div class="detail-grid">
+          <div class="detail reveal"><span class="icon">🗓️</span><h3>When</h3><p><b>Saturday, January 9, 2027</b></p></div>
+          <div class="detail reveal"><span class="icon">🕐</span><h3>Base camp opens</h3><p><b>1:00 PM</b></p></div>
+          <div class="detail reveal"><span class="icon">🏡</span><h3>Where</h3><p><b>Jones Family Home</b><br>12089 Rue Des Amis<br>San Diego, CA 92131</p></div>
+        </div>
+
+        <div class="map-card reveal">
+          <div class="treasure-map" aria-hidden="true">
+            <span class="x">✖</span>
+            <svg viewBox="0 0 300 120"><path d="M20 100 C60 20, 120 110, 160 50 S 250 30, 270 30" stroke="#7A4A2A" stroke-width="4" stroke-dasharray="10 10" fill="none"/></svg>
+            <span class="m-volcano">🌋</span><span class="m-palm">🌴</span><span class="m-dino">🦕</span>
+          </div>
+          <div class="map-actions">
+            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=12089+Rue+Des+Amis,+San+Diego,+CA+92131">📍 Open in Google Maps</a>
+            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://maps.apple.com/?q=12089+Rue+Des+Amis,+San+Diego,+CA+92131">🍎 Apple Maps</a>
+            <a class="btn btn-ghost" id="gcal" target="_blank" rel="noopener" href="#">📅 Google Calendar</a>
+            <button class="btn btn-ghost" id="ics" type="button">🗓️ Add to calendar (.ics)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RSVP ================= -->
+    <section class="section rsvp" id="rsvp">
+      <div class="container">
+        <h2 class="section-title reveal">Join the Expedition! 🦖</h2>
+        <p class="section-lead reveal">Please RSVP so Rex knows how many explorer badges to prepare. We'll send you a confirmation email!</p>
+
+        <form class="rsvp-card reveal" id="rsvp-form" novalidate>
+          <div class="field">
+            <label for="name">Explorer family name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="e.g. The Smith Family" required maxlength="60">
+          </div>
+          <div class="field">
+            <label for="email">Email <small>(for your confirmation)</small></label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required maxlength="120">
+          </div>
+
+          <fieldset class="field choice">
+            <legend>Will you join the mission?</legend>
+            <label class="pill"><input type="radio" name="attending" value="yes" checked><span>🦖 ROAR, YES!</span></label>
+            <label class="pill"><input type="radio" name="attending" value="no"><span>🥲 Can't make it</span></label>
+          </fieldset>
+
+          <div class="counts" id="counts">
+            <div class="counter">
+              <span class="c-label">🧑 Adults</span>
+              <div class="stepper">
+                <button type="button" data-step="adults" data-d="-1" aria-label="One less adult">−</button>
+                <output id="adults-out">1</output>
+                <button type="button" data-step="adults" data-d="1" aria-label="One more adult">+</button>
+              </div>
+            </div>
+            <div class="counter">
+              <span class="c-label">🧒 Children</span>
+              <div class="stepper">
+                <button type="button" data-step="kids" data-d="-1" aria-label="One less child">−</button>
+                <output id="kids-out">1</output>
+                <button type="button" data-step="kids" data-d="1" aria-label="One more child">+</button>
+              </div>
+            </div>
+            <div class="party-preview" id="party-preview" aria-hidden="true"></div>
+            <div class="field full">
+              <label for="kidNames">Little explorers' names <small>(optional, for their badges!)</small></label>
+              <input id="kidNames" name="kidNames" type="text" placeholder="e.g. Sofia, Leo" maxlength="120">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Message for Amelia <small>(optional)</small></label>
+            <textarea id="message" name="message" rows="3" maxlength="400" placeholder="Happy birthday, Amelia! RAWR! 🦕"></textarea>
+          </div>
+
+          <!-- honeypot for bots -->
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+          <button class="btn btn-primary btn-big" type="submit" id="rsvp-submit">🥚 Send my RSVP</button>
+          <p class="tiny">Need to change your answer? Just send it again with the same email.</p>
+        </form>
+
+        <div class="rsvp-done card" id="rsvp-done" hidden tabindex="-1">
+          <div class="hatch" aria-hidden="true">
+            <span class="shell top"></span><span class="baby">🦖</span><span class="shell bottom"></span>
+          </div>
+          <h3 id="done-title">You're on the team!</h3>
+          <p id="done-text"></p>
+          <button class="btn btn-ghost" id="rsvp-again" type="button">✏️ Change my RSVP</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ROSTER ================= -->
+    <section class="section roster" id="roster">
+      <div class="container">
+        <h2 class="section-title reveal">Who's Coming? 🦕</h2>
+        <p class="section-lead reveal">The official Dinosaur Explorer roster. The herd is growing!</p>
+
+        <div class="totals reveal">
+          <div class="total"><b id="t-families">0</b><span>explorer families</span></div>
+          <div class="total"><b id="t-kids">0</b><span>little explorers</span></div>
+          <div class="total"><b id="t-adults">0</b><span>grown-up explorers</span></div>
+        </div>
+        <div class="herd reveal" id="herd" aria-hidden="true"></div>
+        <ul class="roster-list" id="roster-list"></ul>
+        <p class="muted center" id="roster-empty">No explorers yet… be the first to stomp in! 🦶</p>
+        <p class="muted center" id="roster-error" hidden>We couldn't load the roster right now. Try again in a moment.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <img src="assets/rex.svg" alt="" class="footer-rex" width="160" height="104">
+      <p class="footer-big">See you at base camp, Explorer!</p>
+      <p>With stomps &amp; roars, <b>Amelia, Rex &amp; the Jones Family</b> 💚</p>
+      <p class="tiny">Tap anywhere to leave dino footprints 👣</p>
+    </div>
+  </footer>
+
+  <div class="roar-flash" id="roar-flash" aria-hidden="true">ROAAAR!</div>
+  <div id="fx" class="fx" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
