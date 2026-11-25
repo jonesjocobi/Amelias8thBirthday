@@ -100,13 +100,6 @@ h1, h2, h3 { font-family: var(--font-title); font-weight: 400; letter-spacing: .
 .ptero { position: absolute; width: 90px; top: 18%; left: -120px; animation: fly 22s linear infinite; }
 .ptero.p2 { width: 56px; top: 30%; animation-duration: 30s; animation-delay: -12s; }
 
-.volcano { position: absolute; left: -40px; bottom: 90px; width: 320px; opacity: .95; pointer-events: none; }
-.smoke {
-  position: absolute; left: 46%; top: 4px; width: 46px; height: 46px; border-radius: 50%;
-  background: rgba(120, 110, 105, .45); animation: smoke 6s ease-out infinite;
-}
-.s2 { animation-delay: -2s; } .s3 { animation-delay: -4s; }
-
 .hero-inner { position: relative; z-index: 2; }
 .breaking {
   display: inline-flex; align-items: center; gap: 8px;
@@ -137,29 +130,80 @@ body.shake .hero-title { animation: quake .5s; }
   animation: wobble 2.4s ease-in-out infinite;
 }
 
-/* Rex stage */
-.rex-stage { position: relative; width: min(460px, 100%); margin: 10px auto 4px; }
-.rex-btn { background: none; border: 0; padding: 0; cursor: pointer; width: 100%; -webkit-tap-highlight-color: transparent; }
+/* Rex stage: Rex walks on his own jungle floor */
+.rex-stage { position: relative; width: min(460px, 100%); margin: 10px auto 4px; padding-bottom: 30px; }
+.scene-back {
+  position: absolute; z-index: -1; left: 50%; bottom: 34px;
+  width: 100vw; height: clamp(220px, 26vw, 330px); transform: translateX(-50%);
+  pointer-events: none; overflow: visible;
+}
+.floor {
+  position: absolute; z-index: -1; left: 50%; top: calc(100% - 44px);
+  width: 100vw; height: 1600px; transform: translateX(-50%);
+  background: linear-gradient(#5E9A2A 0, #7DB536 10px, #9BCB4E 34px, #BFE07E 90px, #DCEFBA 180px, #E9F5D6 300px);
+  pointer-events: none;
+}
+.floor::before { /* grass tufts along the edge */
+  content: ""; position: absolute; left: 0; right: 0; top: -14px; height: 18px;
+  background:
+    radial-gradient(ellipse 7px 16px at 8px 18px, #5E9A2A 96%, transparent) 0 0 / 22px 18px repeat-x,
+    radial-gradient(ellipse 5px 12px at 16px 18px, #7DB536 96%, transparent) 0 0 / 30px 18px repeat-x;
+}
+.floor::after { /* little pebbles */
+  content: ""; position: absolute; left: 0; right: 0; top: 20px; height: 30px; opacity: .55;
+  background:
+    radial-gradient(ellipse 6px 3px at 20px 10px, #8A7A5C 95%, transparent) 0 0 / 170px 30px repeat-x,
+    radial-gradient(ellipse 4px 2px at 110px 22px, #8A7A5C 95%, transparent) 0 0 / 230px 30px repeat-x;
+}
+.scene-front { position: absolute; z-index: 2; bottom: 6px; width: clamp(150px, 22vw, 300px); height: auto; pointer-events: none; }
+.scene-front.left { left: calc(50% - 50vw); }
+.scene-front.right { right: calc(50% - 50vw); }
+.puff { transform-box: fill-box; transform-origin: center; animation: puff 7s ease-out infinite; opacity: 0; }
+.puff.d2 { animation-delay: -2.3s; } .puff.d3 { animation-delay: -4.6s; }
+.puff.d4 { animation-delay: -1.2s; animation-duration: 8s; } .puff.d5 { animation-delay: -5s; animation-duration: 8s; }
+.far-smoke { animation: drift-smoke 9s ease-in-out infinite; opacity: .8; }
+
+.rex-walker {
+  position: relative; z-index: 1;
+  animation: rex-walk 2.4s cubic-bezier(.25, .6, .45, 1) .6s both;
+}
+.rex-btn {
+  display: block; background: none; border: 0; padding: 0; cursor: pointer; width: 100%;
+  -webkit-tap-highlight-color: transparent; transform-origin: 52% 100%;
+  animation: rex-steps .6s ease-in-out .6s 4;
+}
 .rex-hero {
   width: min(340px, 74%); height: auto; margin: 0 auto;
-  filter: drop-shadow(0 14px 0 rgba(30, 70, 20, .18));
-  transform-origin: 60% 95%;
-  animation: rex-walk-in 1.6s cubic-bezier(.3, 1.3, .5, 1) .6s both, rex-idle 3s ease-in-out 2.2s infinite;
+  filter: drop-shadow(0 3px 2px rgba(30, 70, 20, .2));
+  transform-origin: 52% 100%;
+  animation: rex-breathe 3.2s ease-in-out 3.2s infinite;
 }
 .rex-btn.roar .rex-hero { animation: rex-roar .7s ease-in-out; }
+.rex-shadow {
+  position: absolute; left: 50%; bottom: -8px; width: min(250px, 56%); height: 22px;
+  margin-left: max(-125px, -28%); border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(20, 50, 10, .38), rgba(20, 50, 10, 0));
+  animation: shadow-steps .6s ease-in-out .6s 4;
+}
+.dust {
+  position: absolute; bottom: -4px; width: 26px; height: 16px; border-radius: 50%;
+  background: rgba(150, 125, 90, .55); opacity: 0;
+  animation: dust .6s ease-out .9s 4;
+}
+.dust.d1 { left: 30%; } .dust.d2 { left: 50%; animation-delay: 1.2s; } .dust.d3 { left: 62%; animation-delay: 1.05s; }
 .speech {
   position: absolute; top: -6px; left: 0; max-width: 220px;
   background: #fff; border: 3px solid var(--jungle-deep); border-radius: 18px;
   padding: 6px 14px; font-weight: 700; font-size: .98rem;
   box-shadow: 0 5px 0 var(--jungle-deep);
-  animation: pop .5s 2.4s both;
+  animation: pop .5s 3.2s both;
 }
 .speech::after {
   content: ""; position: absolute; left: 34px; bottom: -14px;
   border: 8px solid transparent; border-top-color: var(--jungle-deep);
 }
 .egg-8 {
-  position: absolute; left: 4%; bottom: 4%;
+  position: absolute; z-index: 1; left: 2%; bottom: 22px;
   width: 78px; height: 96px; animation: egg-wiggle 2.6s ease-in-out infinite;
 }
 .egg-8 .egg-top, .egg-8 .egg-bottom {
@@ -193,7 +237,7 @@ body.shake .hero-title { animation: quake .5s; }
 .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 
 .ground {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 130px; z-index: 1;
+  position: absolute; left: 0; right: 0; bottom: 0; height: 130px; z-index: 3; pointer-events: none;
   background: linear-gradient(var(--rex-dark), var(--jungle));
   border-top: 6px solid var(--jungle-deep);
   border-radius: 50% 50% 0 0 / 30px 30px 0 0;
@@ -483,7 +527,13 @@ input.invalid { border-color: #D7263D; animation: quake .4s; }
 @keyframes stomp-in { 0% { transform: translateY(-120px) scale(1.4); opacity: 0; } 60% { transform: translateY(8px) scale(.96); opacity: 1; } 100% { transform: none; } }
 @keyframes quake { 0%, 100% { transform: none; } 20% { transform: translate(-6px, 2px) rotate(-1deg); } 40% { transform: translate(6px, -2px) rotate(1deg); } 60% { transform: translate(-4px, 1px); } 80% { transform: translate(4px, -1px); } }
 @keyframes wobble { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg) scale(1.06); } }
-@keyframes rex-walk-in { 0% { transform: translateX(-110%) rotate(-4deg); } 30% { transform: translateX(-70%) translateY(-10px) rotate(3deg); } 55% { transform: translateX(-32%) rotate(-3deg); } 80% { transform: translateX(-4%) translateY(-6px) rotate(2deg); } 100% { transform: none; } }
+@keyframes rex-walk { 0% { transform: translateX(-75vw); } 100% { transform: none; } }
+@keyframes rex-steps { 0%, 50%, 100% { transform: translateY(0) rotate(0); } 25% { transform: translateY(-10px) rotate(-2.5deg); } 75% { transform: translateY(-10px) rotate(2.5deg); } }
+@keyframes shadow-steps { 0%, 50%, 100% { transform: scale(1); opacity: 1; } 25%, 75% { transform: scale(.82); opacity: .7; } }
+@keyframes dust { 0% { opacity: 0; transform: scale(.4); } 20% { opacity: .9; } 100% { opacity: 0; transform: translate(-14px, -10px) scale(1.6); } }
+@keyframes rex-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.012, 1.025); } }
+@keyframes puff { 0% { opacity: 0; transform: translate(0, 0) scale(.5); } 15% { opacity: .6; } 100% { opacity: 0; transform: translate(26px, -150px) scale(2.8); } }
+@keyframes drift-smoke { 50% { transform: translate(14px, -6px); } }
 @keyframes rex-idle { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-6px) rotate(-1.5deg); } }
 @keyframes rex-roar { 0% { transform: none; } 20% { transform: rotate(-8deg) scale(1.06); } 40% { transform: rotate(4deg) scale(1.1) translateX(-6px); } 60% { transform: rotate(-4deg) scale(1.08) translateX(6px); } 100% { transform: none; } }
 @keyframes pop { 0% { transform: scale(0); opacity: 0; } 70% { transform: scale(1.15); opacity: 1; } 100% { transform: scale(1); } }
@@ -503,7 +553,8 @@ input.invalid { border-color: #D7263D; animation: quake .4s; }
 /* ---------- Phones ---------- */
 @media (max-width: 760px) {
   .hero { padding-top: 32px; }
-  .volcano { width: 200px; left: -50px; bottom: 100px; opacity: .7; }
+  .scene-back { height: 210px; }
+  .scene-front { width: 120px; }
   .sun { width: 70px; height: 70px; top: 20px; right: 4%; }
   .speech { font-size: .85rem; max-width: 170px; }
   .egg-8 { width: 56px; height: 70px; }

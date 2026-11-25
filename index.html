@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Baloo+2:wght@400;600;700;800&family=Special+Elite&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=14">
+  <link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
 
@@ -32,11 +32,6 @@
       <svg class="ptero p2" viewBox="0 0 120 50" aria-hidden="true"><path d="M0 22c18-4 34-2 48 6l8-10 6 2-2 10c14-8 34-14 60-12-20 6-36 14-48 26l-10-2c-6-4-14-8-24-10C24 30 10 28 0 22z" fill="#C25E1E"/></svg>
     </div>
 
-    <div class="volcano" aria-hidden="true">
-      <span class="smoke s1"></span><span class="smoke s2"></span><span class="smoke s3"></span>
-      <svg viewBox="0 0 300 180"><path d="M0 180L110 30h80l110 150z" fill="#8A5A3C"/><path d="M110 30h80l-12 18c-8-6-16 8-24 0s-14 6-22-2-14 4-22-16z" fill="#F2622E"/><path d="M128 48c4 20-6 40 0 62 4 14-2 30 2 40" stroke="#F2622E" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M166 46c-6 18 4 30-2 50" stroke="#F59A3C" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
-    </div>
-
     <div class="hero-inner container">
       <p class="breaking"><span class="dot"></span> BREAKING DINO NEWS</p>
       <h1 class="hero-title" aria-label="Dinosaurs are coming back!">
@@ -51,9 +46,108 @@
       </p>
 
       <div class="rex-stage">
-        <button class="rex-btn" id="rex-btn" type="button" aria-label="Tap Rex to hear him roar">
-          <img src="assets/rex.png" alt="Rex, Amelia's green T-rex" class="rex-hero" width="661" height="700">
-        </button>
+        <!-- jungle scenery behind Rex -->
+        <svg class="scene-back" viewBox="0 0 1600 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+          <defs>
+            <filter id="soft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
+            <symbol id="palm" viewBox="-120 -260 240 270" overflow="visible">
+              <path d="M-6 6C-2-60 4-150 18-232l10 2C16-148 10-60 8 6z" fill="#8A5A3C"/>
+              <path d="M-4-40h14M-2-80h14M2-120h14M6-160h14M10-200h14" stroke="#6B4129" stroke-width="4"/>
+              <g fill="#3F8A1E">
+                <path d="M22-232c-30-30-80-36-118-14 40-4 76 6 118 14z"/>
+                <path d="M22-232c30-34 82-40 118-18-40-2-78 8-118 18z"/>
+              </g>
+              <g fill="#5FA62A">
+                <path d="M22-232c-40-6-86 20-100 64 26-30 60-50 100-64z"/>
+                <path d="M22-232c40-8 88 14 104 58-28-28-62-46-104-58z"/>
+                <path d="M22-232c-10-30-40-50-72-52 28 14 52 30 72 52z"/>
+                <path d="M22-232c14-30 44-48 76-48-28 12-54 28-76 48z"/>
+              </g>
+              <circle cx="16" cy="-226" r="7" fill="#8A5A3C"/><circle cx="28" cy="-224" r="6" fill="#7A4A2A"/>
+            </symbol>
+            <symbol id="bush" viewBox="-80 -70 160 72" overflow="visible">
+              <ellipse cx="-40" cy="-18" rx="40" ry="26" fill="#3F8A1E"/>
+              <ellipse cx="30" cy="-20" rx="46" ry="30" fill="#4E9A24"/>
+              <ellipse cx="-4" cy="-36" rx="38" ry="30" fill="#5FA62A"/>
+              <path d="M-60-30c10-6 22-6 30 2M10-46c10-6 24-4 32 6" stroke="#8FC24A" stroke-width="4" fill="none" stroke-linecap="round"/>
+            </symbol>
+            <symbol id="fern" viewBox="-60 -110 120 112" overflow="visible">
+              <g fill="#4E9A24">
+                <path d="M0 0C-6-40-30-80-56-100c14 34 30 66 56 100z"/>
+                <path d="M0 0C6-40 30-80 56-100C42-66 26-34 0 0z"/>
+              </g>
+              <path d="M0 0C-2-44 0-80 6-108 12-80 10-40 0 0z" fill="#6FB32E"/>
+              <path d="M0 0C-20-26-44-44-70-50c22 18 44 34 70 50zM0 0c20-26 44-44 70-50C48-32 26-16 0 0z" fill="#5FA62A"/>
+            </symbol>
+          </defs>
+          <!-- far hazy volcanoes -->
+          <g fill="#A9BCD3">
+            <path d="M40 360L250 150h50l230 210z"/>
+            <path d="M1100 360L1330 120h46l224 240z"/>
+          </g>
+          <path d="M560 360L800 90h56l244 270z" fill="#9AAFC9"/>
+          <path d="M800 90h56l-10 12c-8-6-14 6-20 0s-12 4-18-2z" fill="#F59A3C" opacity=".8"/>
+          <g class="far-smoke" fill="#DDE4EC" filter="url(#soft)"><circle cx="828" cy="78" r="16"/><circle cx="846" cy="56" r="22"/><circle cx="822" cy="30" r="26"/></g>
+          <!-- mid volcanoes with lava -->
+          <g>
+            <path d="M260 360L440 140h70l200 220z" fill="#8A5A3C"/>
+            <path d="M440 140h70l-12 18c-10-8-18 8-26 0s-16 6-24-2-12 2-20-14z" fill="#F2622E"/>
+            <path d="M458 160c6 30-8 60 0 92 4 20-2 50 4 70" stroke="#F2622E" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <path d="M494 158c-8 24 4 42-2 70" stroke="#F59A3C" stroke-width="6" fill="none" stroke-linecap="round"/>
+          </g>
+          <g>
+            <path d="M1000 360L1170 170h62l190 190z" fill="#7A4E34"/>
+            <path d="M1170 170h62l-10 16c-8-6-16 8-22 0s-14 6-20-2z" fill="#F2622E"/>
+            <path d="M1186 186c-6 26 6 50-2 80" stroke="#F2622E" stroke-width="8" fill="none" stroke-linecap="round"/>
+          </g>
+          <g class="puffs" fill="#C7BFB8" filter="url(#soft)">
+            <circle class="puff" cx="475" cy="130" r="20"/><circle class="puff d2" cx="475" cy="130" r="20"/><circle class="puff d3" cx="475" cy="130" r="20"/>
+            <circle class="puff d4" cx="1201" cy="160" r="16"/><circle class="puff d5" cx="1201" cy="160" r="16"/>
+          </g>
+          <!-- rolling jungle hills -->
+          <path d="M0 360V280c80-30 160-36 240-20s150 30 240 6 170-50 260-36 160 40 250 34 170-40 260-38 150 22 200 20 100-14 150-20V360z" fill="#6FAE2E"/>
+          <path d="M0 360V312c100-20 200-16 300 0s200 18 320 2 220-26 340-10 200 22 320 10 220-20 320-8V360z" fill="#5A9E26"/>
+          <!-- palms & bushes -->
+          <use href="#palm" x="20" y="96" width="240" height="270" transform="translate(-20 0) scale(1)"/>
+          <use href="#palm" x="230" y="140" width="190" height="214"/>
+          <use href="#palm" x="1260" y="90" width="250" height="280"/>
+          <use href="#palm" x="1440" y="150" width="180" height="204"/>
+          <use href="#palm" x="980" y="170" width="160" height="180"/>
+          <use href="#palm" x="560" y="190" width="140" height="160"/>
+          <use href="#bush" x="-20" y="270" width="220" height="100"/>
+          <use href="#bush" x="320" y="290" width="180" height="80"/>
+          <use href="#bush" x="640" y="300" width="160" height="70"/>
+          <use href="#bush" x="900" y="294" width="190" height="80"/>
+          <use href="#bush" x="1180" y="284" width="200" height="90"/>
+          <use href="#bush" x="1430" y="276" width="220" height="100"/>
+          <use href="#fern" x="180" y="250" width="140" height="120"/>
+          <use href="#fern" x="760" y="270" width="110" height="96"/>
+          <use href="#fern" x="1110" y="256" width="130" height="114"/>
+        </svg>
+        <div class="floor" aria-hidden="true"></div>
+
+        <div class="rex-walker">
+          <span class="rex-shadow" aria-hidden="true"></span>
+          <span class="dust d1" aria-hidden="true"></span><span class="dust d2" aria-hidden="true"></span><span class="dust d3" aria-hidden="true"></span>
+          <button class="rex-btn" id="rex-btn" type="button" aria-label="Tap Rex to hear him roar">
+            <img src="assets/rex.png" alt="Rex, Amelia's green T-rex" class="rex-hero" width="661" height="700">
+          </button>
+        </div>
+
+        <!-- plants in front -->
+        <svg class="scene-front left" viewBox="0 0 300 160" aria-hidden="true">
+          <use href="#fern" x="-30" y="20" width="170" height="150"/>
+          <use href="#bush" x="40" y="80" width="170" height="80"/>
+          <use href="#fern" x="120" y="60" width="110" height="100"/>
+          <path d="M240 160c4-14 10-22 18-26-2 10-4 18-2 26zm20 0c2-16 8-28 18-34-4 12-6 22-4 34z" fill="#4E9A24"/>
+        </svg>
+        <svg class="scene-front right" viewBox="0 0 300 160" aria-hidden="true">
+          <use href="#bush" x="100" y="76" width="190" height="84"/>
+          <use href="#fern" x="170" y="10" width="170" height="160"/>
+          <use href="#fern" x="60" y="70" width="100" height="92"/>
+          <path d="M30 160c2-14 8-24 16-30-2 12-4 20-2 30zm22 0c4-18 12-30 22-36-6 12-8 24-6 36z" fill="#4E9A24"/>
+        </svg>
+
         <div class="speech" id="rex-speech" role="status" aria-live="polite">Psst… tap me! 🦖</div>
         <div class="egg-8" aria-hidden="true">
           <span class="egg-top"></span><span class="egg-num">8</span><span class="egg-bottom"></span>
