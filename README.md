@@ -101,7 +101,7 @@ Drop these files into `assets/photos/` with **exactly** these names (until then,
 | File | Where it shows |
 |---|---|
 | `jones-family.jpg` | "Meet the Expedition Team" → The Jones Family card (added) |
-| `rex-caricature.png` | "Dino-toon Edition" card (the cartoon version) |
+| `amelia-cartoon.jpg` ✅ | "Dino-toon Edition" card (already added) |
 | `amelia-age-7.jpg` ✅ | "The Dino Era: Season 2" → Season 1 (already added) |
 | `rex-original.jpg` ✅ | Rex's card (already added) |
 
