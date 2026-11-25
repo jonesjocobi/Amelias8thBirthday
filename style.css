@@ -302,6 +302,7 @@ body.shake .hero-title { animation: quake .5s; }
 }
 .polaroid img, .polaroid .ph { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 3px; background: #eef3e2; }
 .leader .polaroid img, .leader .polaroid .ph,
+.family .polaroid img, .family .polaroid .ph,
 .era-card .polaroid img { aspect-ratio: 3 / 4; object-position: top; }
 .polaroid .caption { position: absolute; left: 0; right: 0; bottom: 8px; text-align: center; font-family: var(--font-type); font-size: .9rem; color: #555; }
 .tilt-l { transform: rotate(-2.5deg); }
