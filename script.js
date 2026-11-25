@@ -473,3 +473,25 @@ function rain(emojis, n) {
 /* ---------- Helpers ---------- */
 function escapeHtml(s) { return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 function hash(s) { let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h; }
+
+/* ---------- Dino footprint trail behind the pointer (computers only) ---------- */
+if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  let lastX = null, lastY = 0, side = 1;
+  document.addEventListener('mousemove', (e) => {
+    if (lastX === null) { lastX = e.clientX; lastY = e.clientY; return; }
+    const dx = e.clientX - lastX, dy = e.clientY - lastY;
+    const dist = Math.hypot(dx, dy);
+    if (dist < 70) return;
+    const angle = Math.atan2(dy, dx);
+    side = -side;
+    const p = document.createElement('span');
+    p.className = 'trail';
+    // footprint.svg points up, so add 90°; alternate left/right feet
+    p.style.left = (e.clientX + Math.cos(angle + Math.PI / 2) * 7 * side) + 'px';
+    p.style.top = (e.clientY + Math.sin(angle + Math.PI / 2) * 7 * side) + 'px';
+    p.style.setProperty('--r', (angle * 180 / Math.PI + 90) + 'deg');
+    $('#fx').appendChild(p);
+    setTimeout(() => p.remove(), 1500);
+    lastX = e.clientX; lastY = e.clientY;
+  }, { passive: true });
+}

@@ -532,3 +532,22 @@ input.invalid { border-color: #D7263D; animation: quake .4s; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- Fun pointer (computers only) ---------- */
+@media (hover: hover) and (pointer: fine) {
+  html, body, .egg.cracked { cursor: url("assets/cursor-claw.png") 3 3, auto; }
+  a, button, label, summary, .btn, .egg, .pill span, .rex-btn, .stepper button {
+    cursor: url("assets/cursor-bone.png") 20 20, pointer;
+  }
+  input[type="text"], input[type="email"], textarea { cursor: text; }
+  .btn[disabled] { cursor: progress; }
+}
+.fx .trail {
+  position: absolute; width: 18px; height: 18px; margin: -9px 0 0 -9px;
+  background: url("assets/footprint.svg") center / contain no-repeat;
+  animation: trail-fade 1.4s ease-out forwards;
+}
+@keyframes trail-fade {
+  0% { opacity: .75; transform: rotate(var(--r)) scale(1); }
+  100% { opacity: 0; transform: rotate(var(--r)) scale(.6); }
+}
