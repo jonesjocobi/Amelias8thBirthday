@@ -12,7 +12,7 @@ a confirmation email, and a live "Who's Coming?" roster.
 index.html                    The invitation content
 style.css                     Colors, fonts, animations and phone layout
 script.js                     Interactions, RSVP and roster (⚙️ CONFIG at the top)
-assets/rex.svg                Illustrated Rex (based on his original drawing)
+assets/rex.png                Rex (cartoon T-rex, transparent background)
 assets/photos/                Photos (see "Add the photos" below)
 assets/footprint.svg, favicon.svg, share.png   Footprints, tab icon, link preview image
 google-apps-script/Code.gs    Google Sheets service: RSVPs, emails, roster

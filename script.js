@@ -177,7 +177,7 @@ $$('img[data-placeholder]').forEach((img) => {
   const swap = () => {
     const ph = document.createElement('div');
     ph.className = 'ph';
-    ph.innerHTML = `<div><img src="assets/rex.svg" alt=""><span>${img.dataset.placeholder}</span></div>`;
+    ph.innerHTML = `<div><img src="assets/rex.png" alt=""><span>${img.dataset.placeholder}</span></div>`;
     img.replaceWith(ph);
   };
   if (img.complete && img.naturalWidth === 0) swap();
